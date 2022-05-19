@@ -4,7 +4,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/hospital2/API/classes/doctor.php");
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $jsonInput=json_decode(file_get_contents("php://input"));
-    $result = Doctor::Login($jsonInput->username,$jsonInput->password);
+    $result = Doctor::Login($jsonInput->email,$jsonInput->password);
     if(!$result){
         echo json_encode(false);
     }else{
